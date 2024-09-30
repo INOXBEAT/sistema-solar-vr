@@ -11,9 +11,13 @@
     <a-scene>
         <!-- Cámara con controles de movimiento y cursor -->
         <a-entity camera look-controls wasd-controls position="0 1.6 5">
-            <!-- Cursor con raycaster para detectar colisiones -->
-            <a-cursor color="black" fuse="true" fuse-timeout="1500"
-                raycaster="objects: .selectable"></a-cursor>
+            <!-- Cursor con raycaster -->
+            <a-cursor 
+                color="black" 
+                fuse="true" 
+                fuse-timeout="1500"
+                raycaster="objects: .selectable">
+            </a-cursor>
         </a-entity>
 
         <!-- Luces -->
@@ -22,34 +26,41 @@
       
         <!-- Plano del escenario -->
         <a-plane rotation="-90 0 0" width="100" height="100" color="#222"></a-plane>
-      
-        <!-- Planetas (añadido class="selectable" para que el raycaster funcione con ellos) -->
+
+        <!-- Planetas con interacciones personalizadas -->
         <!-- Sol -->
         <a-sphere position="0 1.5 -5" radius="1.5" color="yellow" class="selectable"
-        event-set__mouseenter="_event: mouseenter; color: orange"
-        event-set__mouseleave="_event: mouseleave; color: yellow"></a-sphere>
+            id="sol"
+            geometry="primitive: sphere; radius: 1.5"
+            material="color: yellow"></a-sphere>
 
         <!-- Mercurio -->
         <a-sphere position="2 1.5 -5" radius="0.3" color="gray" class="selectable"
-        event-set__mouseenter="_event: mouseenter; color: lightgray"
-        event-set__mouseleave="_event: mouseleave; color: gray"></a-sphere>
+            id="mercurio"
+            geometry="primitive: sphere; radius: 0.3"
+            material="color: gray"></a-sphere>
 
         <!-- Venus -->
         <a-sphere position="4 1.5 -5" radius="0.6" color="orange" class="selectable"
-        event-set__mouseenter="_event: mouseenter; color: lightyellow"
-        event-set__mouseleave="_event: mouseleave; color: orange"></a-sphere>
+            id="venus"
+            geometry="primitive: sphere; radius: 0.6"
+            material="color: orange"></a-sphere>
 
         <!-- Tierra -->
         <a-sphere position="6 1.5 -5" radius="0.6" color="blue" class="selectable"
-        event-set__mouseenter="_event: mouseenter; color: lightblue"
-        event-set__mouseleave="_event: mouseleave; color: blue"></a-sphere>
+            id="tierra"
+            geometry="primitive: sphere; radius: 0.6"
+            material="color: blue"></a-sphere>
 
         <!-- Marte -->
         <a-sphere position="8 1.5 -5" radius="0.4" color="red" class="selectable"
-        event-set__mouseenter="_event: mouseenter; color: pink"
-        event-set__mouseleave="_event: mouseleave; color: red"></a-sphere>
+            id="marte"
+            geometry="primitive: sphere; radius: 0.4"
+            material="color: red"></a-sphere>
       
     </a-scene>
+
+  
 
 </body>
 </html>
